@@ -21,7 +21,7 @@ The Food Ordering System is a C++ application developed to demonstrate the appli
 
 ## Presentation and Demonstration
 
-For a detailed walkthrough of the project and its functionalities, please refer to our presentation and demonstration video: [Food Ordering System Presentation](#Your-YouTube-or-Drive-Link-Here)
+For a detailed walkthrough of the project and its functionalities, please refer to our presentation and demonstration video: [Food Ordering System Presentation](https://youtu.be/U_g3jfjVCBI)
 
 ## Getting Started
 
