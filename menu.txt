@@ -1,20 +1,20 @@
-Chicken Burger,Sandwich,5.99
-Veggie Burger,Sandwich,4.99
-Caesar Salad,Salad,6.49
-Pasta Carbonara,Pasta,8.99
-Margherita Pizza,Pizza,7.99
-Pepperoni Pizza,Pizza,8.49
-Mushroom Risotto,Risotto,9.99
-Tofu Stir Fry,Vegan,7.49
-Beef Tacos,Tacos,6.99
-Chicken Tacos,Tacos,6.49
-Quinoa Salad,Salad,5.49
-Spaghetti Bolognese,Pasta,8.49
-Greek Salad,Salad,6.99
-Hawaiian Pizza,Pizza,8.99
-Vegetable Curry,Vegan,7.99
-Chicken Wings,Appetizer,5.49
-Garlic Bread,Appetizer,3.99
-Chocolate Cake,Dessert,4.49
-Cheesecake,Dessert,4.99
-Apple Pie,Dessert,3.99
+Hummus,Arabic Appetizer,3.99
+Tabbouleh,Arabic Salad,4.99
+Shawarma,Arabic Sandwich,5.49
+Falafel,Arabic Appetizer,4.49
+Mansaf,Arabic Main Course,10.99
+Baba Ganoush,Arabic Appetizer,4.99
+Kabsa,Arabic Main Course,11.49
+Fattoush,Arabic Salad,5.49
+Nasi Lemak,Malaysian Main Course,7.99
+Laksa,Malaysian Soup,6.99
+Satay,Malaysian Appetizer,5.49
+Rendang,Malaysian Main Course,8.99
+Mee Goreng,Malaysian Noodles,7.49
+Roti Canai,Malaysian Bread,3.99
+Char Kway Teow,Malaysian Noodles,8.49
+Nasi Goreng,Malaysian Fried Rice,7.99
+Bak Kut Teh,Malaysian Soup,9.49
+Hainanese Chicken Rice,Malaysian Main Course,8.99
+Pisang Goreng,Malaysian Dessert,4.49
+Cendol,Malaysian Dessert,4.99
