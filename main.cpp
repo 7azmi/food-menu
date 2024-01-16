@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <queue>
 
 class MenuItem {
 public:
@@ -20,9 +21,24 @@ public:
     MenuItemNode(MenuItem data) : data(data), next(nullptr) {}
 };
 
+
+class Order {
+public:
+    std::string customerName;
+    std::queue<MenuItem> items;
+
+    Order(std::string customerName) : customerName(customerName) {}
+
+    void addItem(const MenuItem& item) {
+        items.push(item);
+    }
+};
+
+
 class FoodOrderingSystem {
 private:
     MenuItemNode* head;
+    std::queue<Order> orderQueue;
 
 public:
     FoodOrderingSystem() : head(nullptr) {}
@@ -62,6 +78,19 @@ public:
             current->next = newNode;
         }
     }
+
+
+    MenuItem getMenuItem(const std::string& itemName) {
+        MenuItemNode* current = head;
+        while (current != nullptr) {
+            if (current->data.name == itemName) {
+                return current->data;
+            }
+            current = current->next;
+        }
+        return MenuItem(); // Return an empty MenuItem if not found
+    }
+
 
     void deleteMenuItem(const std::string& name) {
         MenuItemNode* current = head;
@@ -105,18 +134,45 @@ public:
             current = current->next;
         }
     }
+
+    void placeOrder(Order& order) {
+        orderQueue.push(order);
+        std::cout << "Order placed for " << order.customerName << std::endl;
+    }
+
+    void processOrder() {
+        if (!orderQueue.empty()) {
+            Order order = orderQueue.front();
+            orderQueue.pop();
+            std::cout << "Processing order for " << order.customerName << std::endl;
+        } else {
+            std::cout << "No orders to process." << std::endl;
+        }
+    }
+
+    void printPendingOrders() const {
+        std::queue<Order> tempQueue = orderQueue;
+        while (!tempQueue.empty()) {
+            Order order = tempQueue.front();
+            tempQueue.pop();
+            std::cout << "Pending order for " << order.customerName << std::endl;
+        }
+    }
 };
+
+
 
 
 
 int main() {
     FoodOrderingSystem system;
-
     system.loadMenuItems("menu.txt");
 
     int choice;
     std::string inputName, inputCategory;
     double inputPrice;
+    std::string customerName;
+    std::string itemName;
 
     do {
         std::cout << "\nFood Ordering System Menu\n";
@@ -124,9 +180,13 @@ int main() {
         std::cout << "2. Delete Menu Item\n";
         std::cout << "3. Search Menu by Name\n";
         std::cout << "4. Print Menu\n";
+        std::cout << "5. Place an Order\n";
+        std::cout << "6. Process an Order\n";
+        std::cout << "7. View Pending Orders\n";
         std::cout << "0. Exit\n";
         std::cout << "Enter your choice: ";
         std::cin >> choice;
+
 
         switch (choice) {
             case 1:
@@ -153,6 +213,28 @@ int main() {
                 break;
             case 4:
                 system.printMenu();
+                break;
+            case 5: {
+                std::cout << "Enter customer name for the order: ";
+                std::cin.ignore();
+                std::getline(std::cin, customerName);
+                Order newOrder(customerName);
+
+                do {
+                    std::cout << "Enter menu item name to add to order (or type 'done' to finish): ";
+                    std::getline(std::cin, itemName);
+                    if (itemName != "done") {
+                        newOrder.addItem(system.getMenuItem(itemName));
+                    }
+                } while (itemName != "done");
+                system.placeOrder(newOrder);
+                break;
+            }
+            case 6:
+                system.processOrder();
+                break;
+            case 7:
+                system.printPendingOrders();
                 break;
             case 0:
                 std::cout << "Exiting the program.\n";
